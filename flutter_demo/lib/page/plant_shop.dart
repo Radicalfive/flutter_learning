@@ -1,139 +1,137 @@
 import 'package:flutter/material.dart';
 
+const greenColor = Color(0xFF0C9869);
+
+// 植物⼩店
 class PlantShop extends StatelessWidget {
   const PlantShop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // banner中的字体样式
+    // 构建脚⼿架，包含顶部appBar和body
+    return Scaffold(
+      appBar: _buildAppBar(context),
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: _buildHeader(),
+          ),
+          Positioned(
+            top: 130,
+            left: 20,
+            right: 20,
+            child: _buildSearch(),
+          ),
+          Positioned(
+            top: 200,
+            left: 0,
+            right: 0,
+            height: MediaQuery.of(context).size.height - 200,
+            child: const Body(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // 构建顶部Header
+  Container _buildHeader() {
+    //banner中的字体样式
     const style = TextStyle(
       color: Colors.white,
       fontSize: 32,
       fontWeight: FontWeight.bold,
     );
-
-    // 构建脚手架，包含顶部appBar和body
-    return Scaffold(
-        appBar: _buildAppBar(context),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: <Widget>[
-              // ⻉塞尔弧形部分
-              ClipPath(
-                // 裁剪，使⽤⾃定义的类构建⻉塞尔弧形
-                clipper: BottomClipper(),
-                child: Container(
-                    // 通过内边距让⽂字上移
-                    padding: const EdgeInsets.only(
-                      bottom: 50.0,
-                    ),
-                    // 和appBar背景⾊保持⼀致，融为⼀体
-                    color: const Color(0xFF0C9869),
-                    height: 200,
-                    child: Column(
-                      children: [
-                        Row(
-                            // 主轴和交叉轴的对⻬⽅式
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const <Widget>[
-                              // Row布局，左⽂右图
-                              Text(
-                                'Hi ⼩⿅扫描！',
-                                style: style,
-                              ),
-                              SizedBox(
-                                width: 80,
-                                height: 80,
-                                child: CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage: NetworkImage(
-                                    'https://ossstored.oss-cn-shanghai.aliyuncs.com/avatar-boy/11.jpg',
-                                  ),
-                                ),
-                              ),
-                            ]),
-                        // const SizedBox(
-                        // height: 30.0,
-                        // ),
-                      ],
-                    )),
+    return Container(
+      padding: const EdgeInsets.only(
+        bottom: 50,
+      ),
+      height: 160,
+      decoration: const BoxDecoration(
+        color: greenColor,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(40),
+          bottomRight: Radius.circular(40),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          Text(
+            'Hi ⼩⿅扫描！',
+            style: style,
+          ),
+          SizedBox(
+            width: 80,
+            height: 80,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage(
+                'images/img.jpg',
               ),
-              const TextField(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      prefixText: 'search',
-                      prefixStyle:
-                          TextStyle(color: Colors.green, fontSize: 18)
-                  )
-              ),
-              // Body类构建下⾯的热⻔推荐和特⾊植物
-              const Body(),
-            ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  // 构建搜索区
+  Container _buildSearch() {
+    return Container(
+      height: 58,
+      alignment: Alignment.centerLeft,
+      padding: const EdgeInsets.only(left: 20.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(width: 0.8, color: greenColor),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: const TextField(
+        autofocus: true,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+          ),
+          prefixIcon: Icon(
+            Icons.search,
+            color: greenColor,
+          ),
+          // labelText: '搜索',
+          hintText: 'Search',
+          hintStyle: TextStyle(
+            fontSize: 20,
+            color: greenColor,
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.local_florist),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.favorite_border),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.person_outline),
-                onPressed: () {},
-              ),
-            ], //均分底部导航栏横向空间
-          ),
-        ));
+      ),
+    );
   }
 
-  // 构建顶部appBar的私有⽅法
+  //构建顶部appBar的私有⽅法
   AppBar _buildAppBar(context) {
     return AppBar(
       elevation: 0,
-      backgroundColor: const Color(0xFF0C9869),
+      backgroundColor: greenColor,
       actions: const [
-        Icon(
-          Icons.code,
-          color: Colors.white,
+        Padding(
+          padding: EdgeInsets.only(right: 12.0),
+          child: Icon(
+            Icons.code,
+            color: Colors.white,
+          ),
         ),
       ],
-      // leading:
     );
   }
 }
 
-// ⾃定义裁剪路径，通过⻉塞尔曲线构建弧形
-class BottomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, 0); //第⼀个点
-    path.lineTo(0, size.height - 60); //第⼆个点
-    var firstControlPoint = Offset(size.width / 2, size.height); //曲线开始点
-    var firstEndPoint = Offset(size.width, size.height - 60); // 曲线结束点
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-    path.lineTo(size.width, size.height - 60); //第四个点
-    path.lineTo(size.width, 0); // 第五个点
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}
-
-// Body类构建
+// Body类
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -148,7 +146,7 @@ class Body extends StatelessWidget {
     );
     // 纵向滚动视图，两部分组成：热⻔推荐和特⾊植物
     return SingleChildScrollView(
-      // 纵向 + Column布局
+      //纵向 + Column布局
       scrollDirection: Axis.vertical,
       child: Column(
         // ⽔平⽅向（交叉轴）左对⻬
@@ -166,9 +164,9 @@ class Body extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF0C9869),
+                    primary: greenColor,
                   ),
-                  child: const Text('查看更多'),
+                  child: const Text('更多'),
                 ),
               ],
             ),
@@ -187,13 +185,14 @@ class Body extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF0C9869),
+                    primary: greenColor,
                   ),
-                  child: const Text('查看更多'),
+                  child: const Text('更多'),
                 ),
               ],
             ),
           ),
+          // FeaturedPlants类，⽤于构建纵向滚动的特⾊植物区域
           const FeaturedPlants(),
           // const SizedBox(height: 10.0),
         ],
@@ -201,8 +200,8 @@ class Body extends StatelessWidget {
     );
   }
 }
-//构建热⻔推荐
 
+// 热⻔推荐
 class RecommendsPlants extends StatelessWidget {
   const RecommendsPlants({Key? key}) : super(key: key);
 
@@ -215,22 +214,22 @@ class RecommendsPlants extends StatelessWidget {
         children: const <Widget>[
           // 调⽤封装的⾃定义组件，传⼊参数值
           RecommendPlantCard(
-            image: 'images/banner.jpg',
+            image: "images/plant1.jpg",
             title: '君⼦兰',
             country: '中国',
-            price: '￥440',
+            price: 440,
           ),
           RecommendPlantCard(
-            image: "images/banner.jpg",
+            image: "images/plant2.jpg",
             title: '当归',
             country: '中国',
-            price: '￥440',
+            price: 440,
           ),
           RecommendPlantCard(
-            image: "images/banner.jpg",
+            image: "images/plant3.jpg",
             title: '萨曼沙',
             country: '俄罗斯',
-            price: '￥440',
+            price: 440,
           ),
         ],
       ),
@@ -238,9 +237,9 @@ class RecommendsPlants extends StatelessWidget {
   }
 }
 
+// 封装热⻔推荐卡⽚
 class RecommendPlantCard extends StatelessWidget {
-  //ignore: use_key_in_widget_constructors
-
+  // ignore: use_key_in_widget_constructors
   const RecommendPlantCard({
     required this.image,
     required this.title,
@@ -249,7 +248,7 @@ class RecommendPlantCard extends StatelessWidget {
   });
 
   final String image, title, country;
-  final String price;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
@@ -312,8 +311,7 @@ class RecommendPlantCard extends StatelessWidget {
   }
 }
 
-// 构建特⾊植物区域
-
+// 特⾊植物
 class FeaturedPlants extends StatelessWidget {
   const FeaturedPlants({Key? key}) : super(key: key);
 
@@ -326,13 +324,13 @@ class FeaturedPlants extends StatelessWidget {
         children: const <Widget>[
           // 调⽤封装的⾃定义组件，传⼊图⽚地址
           FeaturePlantCard(
-            image: "images/banner.jpg",
+            image: "images/plant1.jpg",
           ),
           FeaturePlantCard(
-            image: "images/banner.jpg",
+            image: "images/plant2.jpg",
           ),
           FeaturePlantCard(
-            image: "images/banner.jpg",
+            image: "images/plant3.jpg",
           ),
         ],
       ),
@@ -340,7 +338,7 @@ class FeaturedPlants extends StatelessWidget {
   }
 }
 
-// ⾃定义类，定义图⽚地址，使⽤卡⽚构建
+// 特⾊植物卡⽚
 class FeaturePlantCard extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   const FeaturePlantCard({
@@ -367,4 +365,3 @@ class FeaturePlantCard extends StatelessWidget {
     );
   }
 }
-// FeaturedPlants类，⽤于构建纵向滚动的特⾊植物区域
