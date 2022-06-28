@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/bottom/index.dart';
 import 'package:flutter_demo/page/container_widget.dart';
 import 'package:flutter_demo/page/image_widget.dart';
-import 'package:flutter_demo/page/plant_shop.dart';
+import 'package:flutter_demo/sample/plant_shop.dart';
 import 'package:flutter_demo/page/text_widget.dart';
 
 void main() {
