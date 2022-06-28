@@ -47,14 +47,14 @@ class ContainerWidget extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                 image: const DecorationImage(
                   image: NetworkImage(
-                      'https://niit-soft.oss-cn-hangzhou.aliyuncs.com/img/img.jpg'),
+                      'https://ossstored.oss-cn-shanghai.aliyuncs.com/bg/2c4e9c78fb4f4b448a68420067c4c654.jpg'),
                   fit: BoxFit.fill,
                 ),
               ),
               alignment: Alignment.center,
               transform: Matrix4.rotationZ(0.1),
               child: Text(
-                'Hello World',
+                'Hello Flutter',
                 style: Theme.of(context)
                     .textTheme
                     .displayMedium
@@ -65,11 +65,11 @@ class ContainerWidget extends StatelessWidget {
               height: 20,
             ),
             Container(
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle, //Container为圆形
-                color: Colors.orange,
+                color: Colors.blue,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey,

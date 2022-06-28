@@ -54,7 +54,7 @@ class TextWidget extends StatelessWidget {
                             color: Colors.cyanAccent.withAlpha(33),
                             height: 66,
                             child: Text(
-                              " 走进Flutter" * 2,
+                              " 走进Flutter、学习Flutter",
                               textAlign: e,
                             ),
                           ))
@@ -64,11 +64,11 @@ class TextWidget extends StatelessWidget {
               margin: const EdgeInsets.symmetric(
                 vertical: 10.0,
               ),
-              height: 120,
+              height: 80,
               color: Colors.black87,
               alignment: Alignment.center,
               child: Text(
-                "Flutter学习",
+                "Flutter学习，继续加油",
                 style: style,
               ),
             )

@@ -32,7 +32,7 @@ class SilverAppBarWidget extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.center,
                       color: Colors.primaries[(index % 18)],
-                      child: const Text('demo'),
+                      child: const Text('时光轴'),
                     ),
                   );
                 },
