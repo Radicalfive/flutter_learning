@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/page/stateful_page.dart';
-import 'package:flutter_demo/page/stateless_page.dart';
+import 'package:flutter_demo/page/stateful_widget_page.dart';
+import 'package:flutter_demo/page/stateless_widget_page.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
@@ -13,8 +13,8 @@ class CategoryPage extends StatefulWidget {
 class _CategoryPageState extends State with SingleTickerProviderStateMixin {
   final tabs = ['无状态', '有状态', '单渲染', '多渲染', '可折叠', '可寄居', '未分类'];
   final tabPages = [
-    const StatelessPage(),
-    const StatefulPage(),
+    const StatelessWidgetPage(),
+    const StatefulWidgetPage(),
     Container(),
     Container(),
     Container(),
@@ -40,8 +40,9 @@ class _CategoryPageState extends State with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // foregroundColor: Colors.black87,
+        // backgroundColor: Colors.white,
         title: const Text('分类'),
-        backgroundColor: Colors.indigo,
         centerTitle: true,
         actions: const <Widget>[
           Icon(Icons.settings),
@@ -53,22 +54,27 @@ class _CategoryPageState extends State with SingleTickerProviderStateMixin {
   }
 
   PreferredSizeWidget _buildTabBar() => TabBar(
-        isScrollable: true,
-        controller: _tabController,
-        indicatorColor: Colors.orangeAccent,
-        tabs: tabs.map((e) => Tab(text: e)).toList(),
-      );
+    isScrollable: true,
+    indicatorColor: Colors.orangeAccent,
+    controller: _tabController,
+    // labelColor: Colors.black87,
+    tabs: tabs
+        .map((e) => Tab(
+      text: e,
+    ))
+        .toList(),
+  );
 
   Widget _buildTableBarView() => TabBarView(
-        controller: _tabController,
-        children: tabPages.map((e) => e).toList(),
-        // .map((e) => Center(
-        //         child: Text(
-        //       e,
-        //       style: const TextStyle(color: Colors.indigo, fontSize: 20),
-        //     )))
-        // .toList()); {
+    controller: _tabController,
+    children: tabPages.map((e) => e).toList(),
+    // .map((e) => Center(
+    //         child: Text(
+    //       e,
+    //       style: const TextStyle(color: Colors.indigo, fontSize: 20),
+    //     )))
+    // .toList()); {
 
-        // }
-      );
+    // }
+  );
 }
