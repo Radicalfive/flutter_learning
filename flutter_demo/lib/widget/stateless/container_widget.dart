@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/common/style.dart';
 
 class ContainerWidget extends StatelessWidget {
   const ContainerWidget({Key? key}) : super(key: key);
@@ -18,21 +19,17 @@ class ContainerWidget extends StatelessWidget {
           children: [
             const Text(
               '容器组件',
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.purpleAccent,
-              ),
+              style: titleStyle,
             ),
             Container(
               margin: const EdgeInsets.symmetric(
                 vertical: 5.0,
               ),
               child: const Text(
-                  '用于容纳单个子组件的容器组件。集成了若干个单子组件的功能，'
-                  '如内外边距、形变、装饰、约束等。',
-                  style: TextStyle(
-                    fontSize: 18,
-                  )),
+                '用于容纳单个子组件的容器组件。集成了若干个单子组件的功能，'
+                    '如内外边距、形变、装饰、约束等。',
+                style: descStyle,
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(20.0),
@@ -47,14 +44,14 @@ class ContainerWidget extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                 image: const DecorationImage(
                   image: NetworkImage(
-                      'https://ossstored.oss-cn-shanghai.aliyuncs.com/bg/2c4e9c78fb4f4b448a68420067c4c654.jpg'),
+                      'https://niit-soft.oss-cn-hangzhou.aliyuncs.com/img/img.jpg'),
                   fit: BoxFit.fill,
                 ),
               ),
               alignment: Alignment.center,
               transform: Matrix4.rotationZ(0.1),
               child: Text(
-                'Hello Flutter',
+                'Hello World',
                 style: Theme.of(context)
                     .textTheme
                     .displayMedium
@@ -65,11 +62,11 @@ class ContainerWidget extends StatelessWidget {
               height: 20,
             ),
             Container(
-              width: 300,
-              height: 300,
+              width: 200,
+              height: 200,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle, //Container为圆形
-                color: Colors.blue,
+                color: Colors.orange,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey,

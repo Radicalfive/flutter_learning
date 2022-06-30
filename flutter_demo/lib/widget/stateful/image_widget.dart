@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/common/style.dart';
 
 class ImageWidget extends StatelessWidget {
   const ImageWidget({Key? key}) : super(key: key);
@@ -32,10 +33,7 @@ class ImageWidget extends StatelessWidget {
             children: <Widget>[
               const Text(
                 '图片组件',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.purpleAccent,
-                ),
+                style: titleStyle,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
@@ -43,9 +41,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '用于显示一张图片，可以从文件、内存、网络、资源里加载。可以指定适应方式、样式、颜色混合模式、重复模式。',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
+                  style: descStyle,
                 ),
               ),
               Container(
@@ -54,11 +50,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '从资源文件和网络加载图片',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
               Wrap(
@@ -74,11 +66,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '图片颜色及混合模式',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
               Wrap(
@@ -86,22 +74,22 @@ class ImageWidget extends StatelessWidget {
                     .toList()
                     .map(
                       (mode) => Column(
-                        children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.all(5),
-                            width: 60,
-                            height: 60,
-                            color: Colors.red,
-                            child: Image(
-                              image: AssetImage(assetsImagePath),
-                              color: Colors.blue.withAlpha(88),
-                              colorBlendMode: mode,
-                            ),
-                          ),
-                          Text(mode.toString().split('.')[1]),
-                        ],
+                    children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.all(5),
+                        width: 60,
+                        height: 60,
+                        color: Colors.red,
+                        child: Image(
+                          image: AssetImage(assetsImagePath),
+                          color: Colors.blue.withAlpha(88),
+                          colorBlendMode: mode,
+                        ),
                       ),
-                    )
+                      Text(mode.toString().split('.')[1]),
+                    ],
+                  ),
+                )
                     .toList(),
               ),
               Container(
@@ -110,11 +98,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '图片对齐模式',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
               Container(
@@ -123,11 +107,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '图片实现局部放大',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
               Container(
@@ -136,11 +116,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '图片重复模式',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
               Container(
@@ -149,11 +125,7 @@ class ImageWidget extends StatelessWidget {
                 ),
                 child: const Text(
                   '图片的适应模式',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: subTitleStyle,
                 ),
               ),
             ],
@@ -164,24 +136,24 @@ class ImageWidget extends StatelessWidget {
   }
 
   Widget _loadFromAssets() => Wrap(
-        spacing: 10,
-        children: <Widget>[
-          Image.asset(
-            assetsImagePath,
-            height: 80,
-            // width: 80,
-          ),
-          Image.asset(
-            assetsGifPath,
-            height: 80,
-            fit: BoxFit.fitWidth,
-          )
-        ],
-      );
-
-  Widget _loadFromNet() => Image.network(
-        netImageUrl,
+    spacing: 10,
+    children: <Widget>[
+      Image.asset(
+        assetsImagePath,
+        height: 80,
+        // width: 80,
+      ),
+      Image.asset(
+        assetsGifPath,
         height: 80,
         fit: BoxFit.fitWidth,
-      );
+      )
+    ],
+  );
+
+  Widget _loadFromNet() => Image.network(
+    netImageUrl,
+    height: 80,
+    fit: BoxFit.fitWidth,
+  );
 }
