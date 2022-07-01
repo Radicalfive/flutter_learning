@@ -23,6 +23,15 @@ import 'package:flutter_demo/widget/stateless/text_widget.dart';
 import 'package:flutter_demo/widget/stateless/theme_widget.dart';
 import 'package:flutter_demo/widget/stateless/useraccountdrawerheader_widget.dart';
 import 'package:flutter_demo/widget/stateless/visiblity_widget.dart';
+import 'package:flutter_demo/widget/stateless/listtile_widget.dart';
+import 'package:flutter_demo/widget/stateless/checkboxlisttile_widget.dart';
+import 'package:flutter_demo/widget/stateless/switchlisttile_widget.dart';
+import 'package:flutter_demo/widget/stateless/radiolisttile_widget.dart';
+import 'package:flutter_demo/widget/stateless/gridtile_widget.dart';
+import 'package:flutter_demo/widget/stateless/aboutlisttile_widget.dart';
+import 'package:flutter_demo/widget/stateless/spacer_widget.dart';
+import 'package:flutter_demo/widget/stateless/alertdialog_widget.dart';
+
 
 Map<String, Widget Function(BuildContext)> routes = {
   '/index': (context) => const Index(),
@@ -43,10 +52,20 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/theme': (context) => const ThemeWidget(),
   '/gesturedetector': (context) => const GestureDetectorWidget(),
   '/useraccountdrawerheader': (context) =>
-  const UserAccountDrawerHeaderWidget(),
+      const UserAccountDrawerHeaderWidget(),
   '/button': (context) => const ButtonWidget(),
   '/card': (context) => const CardWidget(),
   '/visiblity': (context) => const VisiblityWidget(),
+  '/listtile': (context) => const ListTileWidget(),
+  '/checkboxlisttile': (context) => const CheckboxListTileWidget(),
+  '/switchlisttile': (context) => const SwitchListTileWidget(),
+  '/radiolisttile': (context) => const RadioListTileWidget(),
+  '/gridtile': (context) => const GridTileWidget(),
+  '/aboutlisttile': (context) => const AboutListTileWidget(),
+  '/spacer': (context) => const SpacerWidget(),
+  '/alertdialog': (context) => const AlertDialogWidget(),
+
+
   // 有状态组件导航
   '/image': (context) => const ImageWidget(),
   '/sliverappbar': (context) => const SliverAppBarWidget(),
