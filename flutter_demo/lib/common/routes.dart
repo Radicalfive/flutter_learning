@@ -31,6 +31,14 @@ import 'package:flutter_demo/widget/stateless/gridtile_widget.dart';
 import 'package:flutter_demo/widget/stateless/aboutlisttile_widget.dart';
 import 'package:flutter_demo/widget/stateless/spacer_widget.dart';
 import 'package:flutter_demo/widget/stateless/alertdialog_widget.dart';
+import 'package:flutter_demo/widget/stateless/dialog.dart';
+import 'package:flutter_demo/widget/stateless/aboutdialog.dart';
+import 'package:flutter_demo/widget/stateless/simpledialog.dart';
+import 'package:flutter_demo/widget/stateless/daypicker.dart';
+import 'package:flutter_demo/widget/stateless/safearea_widget.dart';
+import 'package:flutter_demo/widget/stateless/materialbanner_widget.dart';
+import 'package:flutter_demo/widget/stateless/navigationtoolbar_widget.dart';
+import 'package:flutter_demo/widget/stateless/placeholder_widget.dart';
 
 
 Map<String, Widget Function(BuildContext)> routes = {
@@ -64,6 +72,14 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/aboutlisttile': (context) => const AboutListTileWidget(),
   '/spacer': (context) => const SpacerWidget(),
   '/alertdialog': (context) => const AlertDialogWidget(),
+  '/dialog': (context) => const DialogWidget(),
+  '/aboutdialog': (context) => const AboutDialogWidget(),
+  '/simpledialog': (context) => const SimpleDialogWidget(),
+  '/daypicker': (context) => const DayPickerWidget(),
+  '/safearea_widget': (context) => const SafeAreaWidget(),
+  '/materialbanner_widget': (context) => const MaterialBannerWidget(),
+  '/navigationtoolbar_widget': (context) => const NavigationToolbarWidget(),
+  '/placeholder_widget': (context) => const PlaceholderWidget(),
 
 
   // 有状态组件导航
