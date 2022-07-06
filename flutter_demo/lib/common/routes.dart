@@ -39,6 +39,10 @@ import 'package:flutter_demo/widget/stateless/safearea_widget.dart';
 import 'package:flutter_demo/widget/stateless/materialbanner_widget.dart';
 import 'package:flutter_demo/widget/stateless/navigationtoolbar_widget.dart';
 import 'package:flutter_demo/widget/stateless/placeholder_widget.dart';
+import 'package:flutter_demo/widget/stateless/icon_widget.dart';
+import 'package:flutter_demo/widget/stateless/divider_widget.dart';
+import 'package:flutter_demo/widget/stateless/mypreferredsize_widget.dart';
+import 'package:flutter_demo/widget/stateless/cupertino_widget.dart';
 
 
 Map<String, Widget Function(BuildContext)> routes = {
@@ -80,6 +84,10 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/materialbanner_widget': (context) => const MaterialBannerWidget(),
   '/navigationtoolbar_widget': (context) => const NavigationToolbarWidget(),
   '/placeholder_widget': (context) => const PlaceholderWidget(),
+  '/icon_widget': (context) => const IconWidget(),
+  '/divider_widget' :(context) => const DividerWidget(),
+  '/mypreferredsize_widget' :(context) => const MyPreferredSizeWidget(),
+  '/cupertion_widget' :(context) => const CupertinoWidget(),
 
 
   // 有状态组件导航

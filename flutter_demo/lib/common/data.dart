@@ -99,6 +99,11 @@ final statelessList = <ContainerInfo>[
       '/navigationtoolbar_widget'),
   ContainerInfo('PlaceholderWidget', '一个矩形和叉叉的占位组件，可指定颜色、线宽、宽高等属性。',
       '/placeholder_widget'),
+  ContainerInfo('IconWidget', '各类图标组件', '/icon_widget'),
+  ContainerInfo('DividerWidget', '各类分割线组件', '/divider_widget'),
+  ContainerInfo('MyPreferredSizeWidget', '其他组件（幕布层、返回按钮组件、关闭按钮组件）', '/mypreferredsize_widget'),
+  ContainerInfo('CupertinoWidget', 'IOS风格的弹出选择结构以及一些IOS原生的样式', '/cupertion_widget'),
+
 ];
 
 final statefulList = <ContainerInfo>[
