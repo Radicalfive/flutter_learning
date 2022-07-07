@@ -148,6 +148,7 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
                   duration: const Duration(seconds: 1),
                   curve: Curves.fastOutSlowIn,
                   padding: _padding,
+                  // ignore: avoid_print
                   onEnd: () => print('End'),
                   child: Container(
                     alignment: Alignment.center,
