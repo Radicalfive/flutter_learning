@@ -1,7 +1,8 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_example/login/login_one_page.dart';
-import 'package:flutter_example/todo_list/todo_home_two_page.dart';
+import 'package:flutter_example/sample_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -10,7 +11,6 @@ void main() {
   ));
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    // home: TodoHomeTwoPage(),
-    home: LoginOnePage(),
+    home: SamplePage(),
   ));
 }

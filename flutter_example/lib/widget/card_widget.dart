@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../list/list_task.dart';
+import '../ui/list/list_task.dart';
 
-final Color color1 = Color(0xff8d70fe);
-final Color color2 = Color(0xff2da9ef);
+const Color color1 = Color(0xff8d70fe);
+const Color color2 = Color(0xff2da9ef);
 
 final titleStyle = TextStyle(
   fontSize: 22,
@@ -17,12 +17,12 @@ final subTitleStyle = TextStyle(
   fontSize: 16,
 );
 
-final TextStyle notDoneStyle = const TextStyle(
+const TextStyle notDoneStyle = TextStyle(
   color: Colors.black45,
   fontSize: 16,
 );
 
-final TextStyle doneStyle = const TextStyle(
+const TextStyle doneStyle = TextStyle(
   color: Colors.green,
   fontSize: 16,
   fontWeight: FontWeight.bold,
@@ -30,6 +30,7 @@ final TextStyle doneStyle = const TextStyle(
 
 class CardWidget extends StatelessWidget {
   final Task task;
+
   const CardWidget({Key? key, required this.task}) : super(key: key);
 
   @override
@@ -55,7 +56,7 @@ class CardWidget extends StatelessWidget {
         trailing: task.isDone
             ? Text('Done', style: doneStyle)
             : Text(DateFormat('hh:mm a').format(task.taskTime),
-            style: notDoneStyle),
+                style: notDoneStyle),
       ),
     );
   }
